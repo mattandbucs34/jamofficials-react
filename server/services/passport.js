@@ -12,6 +12,6 @@ passport.use(new GoogleStrategy(
     callbackURL: '/auth/google/callback'
   },
   (accessToken, refreshToken, profile, done) => {
-    new URLSearchParams({ googleId: profile.id }).save();
+    new User({ googleId: profile.id }).save();
   }
 ));
